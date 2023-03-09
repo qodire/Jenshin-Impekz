@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Genos&family=Noto+Serif+Georgian:wght@300&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border-style: none;
+}
+
+/* Header */
+.header{
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1;
+}
+
+.leftNav{
+    display: flex;
+    padding: 5px 0px;
+    align-items: center;
+}
+
+.logoImage{
+    height: 10vh;
+    margin: 0 3vw;
+}
+
+.navLinks{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.inHere{
+    color: white;
+    text-shadow: 0px 0px 6px rgb(130, 201, 205);
+}
+
+.navItem{
+    color: white;
+}
+
+.navItem,
+.inHere,
+.signIn,
+.signUp{
+    font-size: 21px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 0 15px;
+}
+
+.navItem:hover{
+    transition: all 0.3s ease 0s;
+    text-shadow: 0px 0px 8px rgb(130, 201, 205);
+}
+
+.register{
+    margin-right: 3vw;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.signIn,
+.signUp{
+    padding: 15px 20px;
+    font-size: 20px;
+    border-radius: 20px;
+    margin: 0px 5px;
+    transition: all 0.3s ease 0s;
+}
+
+.signIn{
+    color: white;
+    background-color: transparent;
+}
+
+.signIn:hover{
+    color: black;
+    background-color: white;
+    transition: all 0.3s ease 0s;
+}
+
+.signUp{
+    color: black;
+    background-color: rgb(255, 236, 31);
+}
+
+.signUp:hover{
+    transition: all 0.3s ease 0s;
+    background-color: white;
+}
+
+/* Footer */
+.footer{
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.footerSocmed{
+    background-color: rgb(54, 54, 54);
+    width: 100%;
+    text-align: center;
+    padding: 7px 0px;
+}
+
+.socmedImg{
+    padding: 0px 10px;
+}
+
+.socmedImg:hover{
+    filter: brightness(2);
+}
+
+.footerMenu{
+    display: flex;
+    align-items: center;
+    margin: 10px 0px;
+}
+
+.footerItem{
+    padding: 0px 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: rgb(97, 97, 97);
+    font-size: 16px;
+    transition: all 0.3s ease 0s;
+}
+
+.footerItem:hover{
+    transition: all 0.3s ease 0s;
+    color: white;
+}
+
+.esrbFooter{
+    margin: 10px 0px;
+    width: 10vw;
+}
+
+.logoFooter{
+    height: 10vh;
+}
+
+.footerDesc{
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    margin: 10px 0px;
+}
+
+.companyLogo{
+    height: 8vh;
+    padding: 10px 0px;
+}
+
+.jumbotron1,
+.jumbotron2,
+.jumbotron3{
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.jumbotron1{
+    background-image: url(../Assets/AboutGameBG.jpg);
+
+}
+
+.jumbotron1 > h1{
+    width: fit-content;
+    background-color: rgba(54, 54, 54, 0.6);
+    font-family: "Genos", sans-serif;
+    font-size: 54px;
+    color: white;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 20vh;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
+
+}
+
+.jumbotron2{
+    background-image: url(../Assets/AboutGameBG2.jpg);
+    padding: 70px 0px;
+}
+
+.titlePart{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.titleDecor{
+    height: 4vh;
+}
+
+.pageTitle{
+    color: white;
+    font-size: 48px;
+    text-align: center;
+    padding: 30px;
+}
+
+.content{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    overflow-x: auto;
+    margin: 0px 50px;
+}
+
+.content.left{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.contentDesc{
+    background: linear-gradient(rgb(244, 238, 224), rgb(244, 211, 133));
+    border: 5px solid rgb(166, 135, 117);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    /* align-items: center; */
+    height: 55vh;
+    width: 25vw;
+    margin-left: -100px;
+    padding: 0px 30px;
+}
+
+.contentDesc > h2{
+    color: rgb(97, 87, 59);
+    font-size: 28px;
+    font-weight: bolder;
+    font-family: "Genos";
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contentDesc > p{
+    color: rgb(97, 87, 59);
+    font-size: 20px;
+    font-family: "Genos";
+    padding: 0px 20px;
+}
+
+.gpyItem{
+    width: 50vw;
+    height: 70vh;
+    padding: 20px 0px;
+}
+
+.contentDesc > h2{
+    font-family: "Genos";
+    font-size: 40px;
+    font-weight: bolder;
+    /* margin-top: -50px; */
+}
+
+.jumbotron3{
+    background-image: url(../Assets/AboutGameBG3.png);
+}
+
+.arrow > img{
+    width: 3vw;
+}
+
+.shotsSlide{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 5vw;
+    padding-top: 24px;
+    align-items: center;
+}
+
+.imgItem{
+    width: 45vw;
+}
+    
+.slide{
+    cursor: pointer;
+    height: 45px;
+    width: 45px;
+    align-content: center;
+}
+
+.slide span{
+    font-size: 35px;
+    color: white;
+}
