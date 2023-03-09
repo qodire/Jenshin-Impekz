@@ -200,6 +200,7 @@
 .jumbotron2{
     background-image: url(../Assets/AboutGameBG2.jpg);
     padding: 70px 0px;
+    /* padding-bottom: 50px; */
 }
 
 .titlePart{
@@ -210,7 +211,7 @@
 }
 
 .titleDecor{
-    height: 4vh;
+    height: 1vw;
 }
 
 .pageTitle{
@@ -218,21 +219,25 @@
     font-size: 48px;
     text-align: center;
     padding: 30px;
+    /* margin-bottom: 10px; */
 }
 
 .content{
     display: flex;
-    justify-content: center;
+    align-items: center;
     flex-direction: column;
-    overflow: hidden;
-    overflow-x: auto;
-    margin: 0px 50px;
+    /* overflow: hidden; */
+    overflow-y: scroll;
 }
 
-.content.left{
+.contentLeft{
     display: flex;
     justify-content: center;
-    flex-direction: row;
+}
+
+.contentRight{
+    display: flex;
+    justify-content: center;
 }
 
 .contentDesc{
@@ -240,41 +245,48 @@
     border: 5px solid rgb(166, 135, 117);
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
-    /* align-items: center; */
-    height: 55vh;
+    height: 22vw;
     width: 25vw;
-    margin-left: -100px;
-    padding: 0px 30px;
+    padding: 0px 2vw;
+}
+
+.contentDesc.right{
+    margin-left: -70px;
+}
+
+.contentDesc.left{
+    margin-top: -5px;
+    margin-right: -70px;
+    z-index: 1;
 }
 
 .contentDesc > h2{
     color: rgb(97, 87, 59);
-    font-size: 28px;
-    font-weight: bolder;
+    font-size: 2.5vw;
+    /* font-weight: bolder; */
     font-family: "Genos";
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 .contentDesc > p{
     color: rgb(97, 87, 59);
-    font-size: 20px;
+    font-size: 1.2vw;
     font-family: "Genos";
-    padding: 0px 20px;
+    padding: 0px 0.5vw;
 }
 
 .gpyItem{
-    width: 50vw;
-    height: 70vh;
+    width: 45vw;
+    height: 26vw;
     padding: 20px 0px;
+    margin-bottom: 20px;
 }
 
-.contentDesc > h2{
-    font-family: "Genos";
-    font-size: 40px;
-    font-weight: bolder;
-    /* margin-top: -50px; */
+.gpyItem.last{
+    margin-bottom: 0px;
 }
 
 .jumbotron3{

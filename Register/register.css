@@ -189,7 +189,7 @@
     width: 100px;
     height: 100px;
     margin-right: -50px;
-    margin-top: -20px;
+    margin-top: -40px;
     z-index: 1;
 }
 
@@ -197,12 +197,12 @@
     width: 130px;
     height: 150px;
     margin-left: -70px;
-    margin-top: -50px;
+    margin-top: -70px;
 }
 
 .registerBox{
     width: 360px;
-    height: 70vh;
+    height: fit-content;
     background-color: white;
     border-radius: 20px;
     display: flex;
@@ -215,7 +215,7 @@
     font-family: "Genos", sans-serif;
     font-weight: 100;
     text-align: center;
-    margin-bottom: 20px;
+    margin: 20px 0px;
     font-size: 27px;
 }
 
@@ -227,12 +227,11 @@ form{
 }
 
 .formBox{
-    width: 10vwpx;
-    /* border: 1px solid black; */
+    width: fit-content;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-content: center;
+    align-items: center;
+    padding-left: 1vw;
 }
 
 #inputText,
@@ -284,9 +283,18 @@ form{
 
 #termsPrivacy{
     display: flex;
-    align-items: center;
+    flex-direction: column;
     margin-top: 20px;
     margin-bottom: 10px;
+}
+
+#termsPart{
+    display: flex;
+    align-items: center;
+}
+
+#termsError{
+    padding-top: 8px;
 }
 
 .termsText{
@@ -294,6 +302,10 @@ form{
     margin-left: 5px;
     font-size: 10px;
     color: rgb(138, 138, 138);
+}
+
+.return{
+    margin-bottom: 10px;
 }
 
 .return > a{
