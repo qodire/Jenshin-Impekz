@@ -18,7 +18,80 @@
     position: fixed;
     display: flex;
     justify-content: space-between;
-    z-index: 1;
+    z-index: 2;
+}
+
+:root {
+    --bar-width: 4.5vw;
+    --bar-height: 0.5vw;
+    --hamburger-gap: 6px;
+    --foreground: #333;
+    --background: white;
+    --hamburger-margin: 8px;
+    --animation-timing: 400ms ease-in-out;
+    --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
+}
+    
+.hamburgerMenu {
+    --x-width: calc(var(--hamburger-height) * 1.41421356237);
+    /* display: flex; */
+    display: none;
+    flex-direction: column;
+    gap: var(--hamburger-gap);
+    width: max-content;
+    z-index: 2;
+    cursor: pointer;
+}
+    
+.hamburgerMenu:has(input:checked) {
+    --foreground: white;
+    --background: #333;
+}
+    
+.hamburgerMenu:has(input:focus-visible)::before,
+.hamburgerMenu:has(input:focus-visible)::after,
+.hamburgerMenu input:focus-visible {
+    border: 1px solid var(--background);
+    box-shadow: 0 0 0 1px var(--foreground);
+}
+    
+.hamburgerMenu::before,
+.hamburgerMenu::after,
+.hamburgerMenu input {
+    content: "";
+    width: var(--bar-width);
+    height: var(--bar-height);
+    background-color: rgb(214, 214, 214);
+    border-radius: 9999px;
+    transform-origin: left center;
+    transition: opacity var(--animation-timing), width var(--animation-timing),
+     rotate var(--animation-timing), translate var(--animation-timing),
+     background-color var(--animation-timing);
+}
+    
+.hamburgerMenu input {
+    appearance: none;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    pointer-events: none;
+}
+    
+.hamburgerMenu:has(input:checked)::before {
+    rotate: 45deg;
+    width: var(--x-width);
+    translate: 0 calc(var(--bar-height) / -2);
+}
+    
+.hamburgerMenu:has(input:checked)::after {
+    rotate: -45deg;
+    width: var(--x-width);
+    translate: 0 calc(var(--bar-height) / 2);
+}
+    
+.hamburgerMenu input:checked {
+    opacity: 0;
+    width: 0;
 }
 
 .leftNav{
@@ -28,7 +101,7 @@
 }
 
 .logoImage{
-    height: 10vh;
+    height: 60px;
     margin: 0 3vw;
 }
 
@@ -51,7 +124,7 @@
 .inHere,
 .signIn,
 .signUp{
-    font-size: 21px;
+    font-size: 19px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     padding: 0 15px;
 }
@@ -65,13 +138,11 @@
     margin-right: 3vw;
     display: flex;
     align-items: center;
-    flex-direction: row;
 }
 
 .signIn,
 .signUp{
-    padding: 15px 20px;
-    font-size: 20px;
+    padding: 1vw 2vw;
     border-radius: 20px;
     margin: 0px 5px;
     transition: all 0.3s ease 0s;
@@ -136,6 +207,7 @@
     color: rgb(97, 97, 97);
     font-size: 16px;
     transition: all 0.3s ease 0s;
+    text-align: center;
 }
 
 .footerItem:hover{
@@ -164,6 +236,7 @@
     padding: 10px 0px;
 }
 
+/* Content */
 .jumbotron1,
 .jumbotron2,
 .jumbotron3{
@@ -179,11 +252,11 @@
 
 .jumbotron1{
     background-image: url(../Assets/AboutGameBG.jpg);
-
 }
 
 .jumbotron1 > h1{
     width: fit-content;
+    align-items: center;
     background-color: rgba(54, 54, 54, 0.6);
     font-family: "Genos", sans-serif;
     font-size: 54px;
@@ -194,7 +267,6 @@
     padding: 20px;
     border-radius: 20px;
     box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
-
 }
 
 .jumbotron2{
@@ -208,6 +280,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: row;
+    margin-bottom: 10px;
 }
 
 .titleDecor{
@@ -219,7 +292,6 @@
     font-size: 48px;
     text-align: center;
     padding: 30px;
-    /* margin-bottom: 10px; */
 }
 
 .content{
@@ -253,12 +325,12 @@
 }
 
 .contentDesc.right{
-    margin-left: -70px;
+    margin-left: -12vw;
 }
 
 .contentDesc.left{
     margin-top: -5px;
-    margin-right: -70px;
+    margin-right: -12vw;
     z-index: 1;
 }
 
@@ -268,7 +340,7 @@
     /* font-weight: bolder; */
     font-family: "Genos";
     text-align: center;
-    margin-bottom: 5px;
+    margin-bottom: 1vw;
 }
 
 .contentDesc > p{
@@ -280,9 +352,10 @@
 
 .gpyItem{
     width: 45vw;
+    min-width: 200px;
     height: 26vw;
     padding: 20px 0px;
-    margin-bottom: 20px;
+    margin-bottom: 4vw;
 }
 
 .gpyItem.last{
@@ -308,17 +381,335 @@
 }
 
 .imgItem{
-    width: 45vw;
+    width: 50vw;
 }
     
 .slide{
     cursor: pointer;
-    height: 45px;
-    width: 45px;
-    align-content: center;
+    padding: 5px 0px;
+    /* padding-top: 10px; */
+    border-radius: 4px;
+    transition: all 0.3s ease 0s;
 }
 
-.slide span{
-    font-size: 35px;
+.slide:hover{
+    box-shadow: 0px 0px 6px white;
+    transition: all 0.3s ease 0s;
+}
+
+.arrow{
+    display: flex;
+    /* font-size: 35px; */
     color: white;
+}
+
+@media screen and (min-width: 501px) and (max-width: 890px) {
+    /* Header */
+    .header{
+        height: 70px;
+    }
+
+    .logoImage{
+        width: 130px;
+        height: 50px;
+    }
+
+    .hamburgerMenu{
+        display: flex;
+    }
+
+    .navLinks {
+        flex-direction: column;
+        transition: translate var(--animation-timing);
+        position: absolute;
+        translate: 0 -130%;
+        padding-left: 20px;
+        /* padding-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem); */
+        background-color: rgba(0, 0, 0, 0.7);
+        color: var(--background);
+        width: 100vw;
+        height: 30vh;
+    }
+
+    .hamburgerMenu:has(input:checked) + .navLinks {
+        translate: 0 20.95vh;
+        position: absolute;
+    }
+
+    .navItem,
+    .inHere{
+        font-size: 19px;
+        padding: 10px 0px;
+    }
+
+    .register{
+        position: absolute;
+        right: 0;
+        top: 17px;
+    }
+
+    .signIn,
+    .signUp{
+        font-size: 19px;
+        padding: 1vw 3vw;
+    }
+
+    /* Footer */
+    .socmedImg{
+        padding: 0px 8px;
+        height: 30px;
+    }
+    
+    .footerItem{
+        padding: 0px 15px;
+        font-size: 16px;
+    }
+    
+    .esrbFooter{
+        width: 80px;
+    }
+
+    .logoFooter{
+        height: 50px;
+        margin: 0px 20px;
+    }
+    
+    .footerDesc{
+        font-size: 11px;
+        margin: 10px;
+    }
+
+    .companyLogo{
+        width: 100px;
+        height: auto;
+    }
+
+    /* jumbotron1 */
+    .jumbotron1 > h1{
+        font-size: calc(30px + 2.6vw);
+    }
+
+    /* jumbotron2 */
+    .pageTitle{
+        font-size: calc(20px + 2.6vw);
+    }
+    
+    .contentDesc{
+        border: 3.5px solid rgb(166, 135, 117);
+        height: 28vw;
+        width: 30vw;
+        padding: 0px 2vw;
+    }
+    
+    .contentDesc.right{
+        margin-left: -12vw;
+    }
+    
+    .contentDesc.left{
+        margin-top: -5px;
+        margin-right: -12vw;
+        z-index: 1;
+    }
+
+    .contentDesc > h2{
+        font-size: 2.5vw;
+        /* font-weight: bolder; */
+        margin-bottom: 1vw;
+    }
+    
+    .contentDesc > p{
+        color: rgb(97, 87, 59);
+        font-size: 1.5vw;
+        font-family: "Genos";
+        padding: 0px 0.5vw;
+    }
+    
+    .gpyItem{
+        width: 50vw;
+        height: 35vw;
+        padding-top: 0px;
+        margin: 20px 0px;    
+    }
+
+    .imgItem{
+        width: 60vw;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .header{
+        height: 50px;
+    }
+    
+    .logoImage{
+        width: 25vw;
+        height: 10vw;
+    }
+
+    :root {
+        --bar-width: 7vw;
+        --bar-height: 0.8vw;
+    }
+
+    .hamburgerMenu{
+        display: flex;
+    }
+
+    .navLinks {
+        flex-direction: column;
+        transition: translate var(--animation-timing);
+        position: absolute;
+        translate: 0 -130%;
+        padding-left: 20px;
+        /* padding-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem); */
+        background-color: rgba(0, 0, 0, 0.7);
+        color: var(--background);
+        width: 100vw;
+        height: 30vh;
+    }
+
+    .hamburgerMenu:has(input:checked) + .navLinks {
+        position: absolute;
+        translate: 0 19.25vh;
+    }
+
+    .navItem,
+    .inHere{
+        font-size: 4vw;
+        padding: 10px 0px;
+    }
+
+    .register{
+        position: absolute;
+        right: 0;
+        top: 11px;
+    }
+
+    .signIn,
+    .signUp{
+        font-size: 4vw;
+        padding: 1vw 3vw;
+    }
+
+    /* Footer */
+    .socmedImg{
+        padding: 0px 8px;
+        height: 20px;
+    }
+    
+    .footerItem{
+        padding: 0px 10px;
+        font-size: 10px;
+    }
+
+    .footerMenu{
+        margin: 10px 5px;
+    }
+    
+    .esrbFooter{
+        margin: 7px 0px;
+        width: 50px;
+    }
+    
+    .logoFooter{
+        height: 30px;
+        margin: 0px 10px;
+    }
+    
+    .footerDesc{
+        font-size: 8px;
+        margin: 10px;
+    }
+    
+    .companyLogo{
+        height: 5vh;
+        padding: 10px 0px;
+    }
+
+    /* jumbotron1 */
+    .jumbotron1 > h1{
+        font-size: calc(20px + 2.4vw);
+    }
+
+    /* jumbotron2 */
+    .pageTitle{
+        font-size: calc(16px + 2vw);
+        padding: 20px 10px;
+    }
+
+    .titleDecor{
+        height: 1vw;
+    }
+    
+    .contentDesc{
+        border: 2px solid rgb(166, 135, 117);
+        height: 32vw;
+        width: 30vw;
+        padding: 0px 2vw;
+    }
+    
+    .contentDesc.right{
+        margin-left: -12vw;
+    }
+    
+    .contentDesc.left{
+        margin-top: -5px;
+        margin-right: -12vw;
+        z-index: 1;
+    }
+    
+    .contentDesc > h2{
+        color: rgb(97, 87, 59);
+        font-size: 3vw;
+        /* font-weight: bolder; */
+        font-family: "Genos";
+        text-align: center;
+        margin-bottom: 5px;
+    }
+    
+    .contentDesc > p{
+        color: rgb(97, 87, 59);
+        font-size: 1.8vw;
+        font-family: "Genos";
+        padding: 0px 0.5vw;
+    }
+    
+    .gpyItem{
+        width: 55vw;
+        height: 38vw;
+        padding-top: 0px;
+        margin: 20px 0px;       
+    }
+
+    /* jumbotron3 */
+    .arrow > img{
+        width: 5vw;
+    }
+
+    .arrow{
+        width: fit-content;
+    }
+    
+    .shotsSlide{
+        /* position: relative; */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding: 5vw 0px;
+        align-items: center;
+    }
+    
+    .imgItem{
+        width: 80vw;
+        margin: 30px 0px;
+    }
+        
+    .slide{
+        cursor: pointer;
+        padding: 5px 0px;
+        /* padding-top: 10px; */
+        border-radius: 4px;
+        transition: all 0.3s ease 0s;
+        rotate: 90deg;
+    }
 }

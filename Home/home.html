@@ -8,11 +8,11 @@
     <link rel="web icon" href="../Assets/MiniPaiman.webp">
     <link rel="stylesheet" href="home.css">
 </head>
-
 <body>
     <div class="header">
         <div class="leftNav">
             <img class="logoImage" src="../Assets/LogoGlow.png" alt="">
+            <label class="hamburgerMenu"><input type="checkbox" /></label>
             <div class="navLinks">
                 <a href="home.html" class="inHere">Home</a>
                 <a href="../Characters/characterMoundstat.html" class="navItem">Characters</a>
@@ -40,96 +40,136 @@
         </div>
 
         <div class="jumbotron2">
-            <div class="title">
-                <div class="titlePart">
-                    <img src="../Assets/LeftDecor.png" alt="" class="titleDecor">
-                    <h1 class="pageTitle">Meet New Characters</h1>
-                    <img src="../Assets/RightDecor.png" alt="" class="titleDecor">
+            <div class="titlePart">
+                <img src="../Assets/LeftDecor.png" alt="" class="titleDecor">
+                <h1 class="pageTitle">Meet New Characters</h1>
+                <img src="../Assets/RightDecor.png" alt="" class="titleDecor">
+            </div>
+            <div class="charSlide">
+                <div onclick="slider(-1)" class="slide left">
+                    <span class="arrow left"><img src="../Assets/ArrowLeft.png  " alt=""></span>
                 </div>
-                <div class="charSlide">
-                    <div onclick="slider(-1)" class="slide left">
-                        <span class="arrow left"><img src="../Assets/ArrowLeft.png  " alt=""></span>
-                    </div>
-                    <div class="charDesc">
-                        <p class="descItem">
-                            Leader of the Tenryou Commision’s <br>
-                            forces. A charismatic woman who acts <br>
-                            as swiftly as a strom wind and always <br>
-                            honors her word.
-                        </p>
-                        <p class="descItem">
-                            Owner of the jade Chamber in the <br>
-                            skies above Liyue, there are stories <br>
-                            abound about NingNang, with her <br>
-                            elegance and mysterious smile.
-                        </p>
-                        <p class="descItem">
-                            An exorcist who roams the land with <br>
-                            Lueyi as his base of operations, evil <br>
-                            spirits fleeing wherever he goes.
-                        </p>
-                        <p class="descItem">
-                            One of the mighty and illuminated <br>
-                            adepti guarding Lueyi, also heralded <br>
-                            as the "Vigiliant Yaksha".
-                        </p>
-                    </div>
-                    <div class="images">
-                        <img class="imgItem" src="../Assets/NewChar1.png" alt="">
-                        <img class="imgItem" src="../Assets/NewChar2.png" alt="">
-                        <img class="imgItem" src="../Assets/NewChar3.png" alt="">
-                        <img class="imgItem" src="../Assets/NewChar4.png" alt="">
-                    </div>
-                    <div onclick="slider(1)" class="slide right">
-                        <span class="arrow right"><img src="../Assets/ArrowRight.png" alt=""></span>
-                    </div>
-                    <script src="home.js"></script>
+                <div class="charDesc">
+                    <p class="descItem">
+                        Leader of the Tenryou Commision’s 
+                        forces. A charismatic woman who acts 
+                        as swiftly as a strom wind and always 
+                        honors her word.
+                    </p>
+                    <p class="descItem">
+                        Owner of the jade Chamber in the 
+                        skies above Liyue, there are stories 
+                        abound about NingNang, with her 
+                        elegance and mysterious smile.
+                    </p>
+                    <p class="descItem">
+                        An exorcist who roams the land with 
+                        Lueyi as his base of operations, evil 
+                        spirits fleeing wherever he goes.
+                    </p>
+                    <p class="descItem">
+                        One of the mighty and illuminated 
+                        adepti guarding Lueyi, also heralded 
+                        as the "Vigiliant Yaksha".
+                    </p>
                 </div>
+                <div class="images">
+                    <img class="imgItem" src="../Assets/NewChar1.png" alt="">
+                    <img class="imgItem" src="../Assets/NewChar2.png" alt="">
+                    <img class="imgItem" src="../Assets/NewChar3.png" alt="">
+                    <img class="imgItem" src="../Assets/NewChar4.png" alt="">
+                </div>
+                <div onclick="slider(1)" class="slide right">
+                    <span class="arrow right"><img src="../Assets/ArrowRight.png" alt=""></span>
+                </div>
+                <script src="home.js"></script>
             </div>
         </div>
 
         <div class="jumbotron3">
-            <div class="allBorder">
-                <div class="spaceBorder"> 
-                    <div class="border">
-                        <div class="weapon">
-                            <div class="bowShadow">
-
-                            </div>
-                        </div>
+            <!-- <img class="decor leftTop" src="../Assets/DecorHome1.png" alt=""> -->
+            <!-- <img class="decor rightTop" src="../Assets/DecorHome2.png" alt=""> -->
+            <div class="titlePart">
+                <img src="../Assets/LeftDecorClrd.png" alt="" class="titleDecor">
+                <h1 class="pageTitle3">New Weapons</h1>
+                <img src="../Assets/RightDecorClrd.png" alt="" class="titleDecor">
+            </div>
+            <div class="listWeapon">
+                <div class="eachWeapon bow">
+                    <img class="stars" src="../Assets/StarWeap.png" alt="">
+                    <img class="weaponImg bow" src="../Assets/WeapBowing.png" alt="">
+                    <h1 class="weaponName">Bowing</h1>
+                    <div class="imgOverlay">
+                        <h3 class="weapType">Bow</h3>
+                        <h2 class="atk">ATK</h2>
+                        <h3 class="generalDesc">16.9%</h3>
+                        <h2 class="atk">Base ATK</h2>
+                        <h1 class="baseAtk">69</h1>
+                        <p class="weapDesc">
+                            <q>Strong-Willed</q><br>
+                            Increases Normal Attack and Aimed Shot DMG by <b>12%</b>.
+                            Increases DMG by <b>8%</b> for every 0.1s that an arrow is in fight.
+                            Stacks up to 5 times on each arrow.
+                        </p>
                     </div>
                 </div>
-                
-                <div class="spaceBorder">
-                    <div class="border">
-                        <div class="weapon">
-                            <div class="swoShadow">
-
-                            </div>
-                        </div>
+                <div class="eachWeapon sword">
+                    <img class="stars" src="../Assets/StarWeap.png" alt="">
+                    <img class="weaponImg sword" src="../Assets/WeapSwoing.png" alt="">
+                    <h1 class="weaponName">Swoing</h1>
+                    <div class="imgOverlay">
+                        <h3 class="weapType">Sword</h3>
+                        <h2 class="atk">ATK</h2>
+                        <h3 class="generalDesc">19.6%</h3>
+                        <h2 class="atk">Base ATK</h2>
+                        <h1 class="baseAtk">96</h1>
+                        <p class="weapDesc">
+                            <q>Strong-Willed</q><br>
+                            Increases Normal Attack and Aimed Shot DMG by <b>12%</b>.
+                            Increases DMG by <b>8%</b> for every 0.1s that an arrow is in fight.
+                            Stacks up to 5 times on each arrow.
+                        </p>
                     </div>
                 </div>
-
-                <div class="spaceBorder">
-                    <div class="border">
-                        <div class="weapon">
-                            <div class="speShadow">
-
-                            </div>
-                        </div>
+                <div class="eachWeapon spear">
+                    <img class="stars" src="../Assets/StarWeap.png" alt="">
+                    <img class="weaponImg spear" src="../Assets/WeapSpeing.png" alt="">
+                    <h1 class="weaponName">Speing</h1>
+                    <div class="imgOverlay">
+                        <h3 class="weapType">Spear</h3>
+                        <h2 class="atk">ATK</h2>
+                        <h3 class="generalDesc">16.9%</h3>
+                        <h2 class="atk">Base ATK</h2>
+                        <h1 class="baseAtk">69</h1>
+                        <p class="weapDesc">
+                            <q>Strong-Willed</q><br>
+                            Increases Normal Attack and Aimed Shot DMG by <b>12%</b>.
+                            Increases DMG by <b>8%</b> for every 0.1s that an arrow is in fight.
+                            Stacks up to 5 times on each arrow.
+                        </p>
                     </div>
                 </div>
-                
-                <div class="spaceBorder">
-                    <div class="border">
-                        <div class="weapon">
-                            <div class="orbShadow">
-
-                            </div>
-                        </div>
+                <div class="eachWeapon orb">
+                    <img class="stars" src="../Assets/StarWeap.png" alt="">
+                    <img class="weaponImg orb" src="../Assets/WeapOrbing.png" alt="">
+                    <h1 class="weaponName">Orbing</h1>
+                    <div class="imgOverlay">
+                        <h3 class="weapType">Orb</h3>
+                        <h2 class="atk">ATK</h2>
+                        <h3 class="generalDesc">19.6%</h3>
+                        <h2 class="atk">Base ATK</h2>
+                        <h1 class="baseAtk">96</h1>
+                        <p class="weapDesc">
+                            <q>Strong-Willed</q><br>
+                            Increases Normal Attack and Aimed Shot DMG by <b>12%</b>.
+                            Increases DMG by <b>8%</b> for every 0.1s that an arrow is in fight.
+                            Stacks up to 5 times on each arrow.
+                        </p>
                     </div>
                 </div>
             </div>
+            <!-- <img class="decor leftBottom" src="../Assets/DecorHome3.png" alt=""> -->
+            <!-- <img class="decor rightBottom" src="../Assets/DecorHome4.png" alt=""> -->
         </div>
     </div>
 

@@ -240,296 +240,220 @@
 }
 
 /* Content */
-.jumbotron1,
-.jumbotron2, 
-.jumbotron3{
+.container{
     width: 100%;
     height: 100vh;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    animation-name: changeBG;
+    animation-duration: 14s;
+    animation-iteration-count: infinite;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.mapBar{
+    display: flex;
     flex-direction: column;
+    margin-left: -2px;
+    width: 260px;
 }
 
-.jumbotron1{
-    background-image: url(../Assets/HomeBG.jpg);
-}
-
-.playTrailer{
-    margin-top: 10vh;
-    text-align: center;
-}
-
-.playTrailer > img{
-    opacity: 0.7;
-    transition: all 0.3s ease 0s;
-}
-
-.playTrailer > img:hover{
-    opacity: 1;
-    transition: all 0.3s ease 0s;
-}
-
-.mainTitle{
-    font-size: 4vw;
-    font-family: "Genos";
-    color: white;
-    text-align: center;
-    text-shadow: 0px 0px 10px rgb(236, 126, 102);
-    padding-top: 5vh;
-}
-
-.platform{
-    padding: 5vh 0;
-    display: flex;
-    justify-content: center;
-}
-
-.pltImage{
-    width: 15vw;
-    padding: 10px;
-    opacity: 0.65;
-    transition: all 0.3s ease 0s;
-}
-
-.pltImage:hover{
-    opacity: 1;
-    transition: all 0.3s ease 0s;
-}
-
-.esrbImg{
-    width: 10vw;
-    position: absolute;
-    left: 1vw;
-    bottom: 2vh;
-}
-
-.jumbotron2{
-    padding-top: 8vh;
-    background-image: url(../Assets/NewCharBG.jpg);
-}
-
-.titlePart{
+.mapName{
+    left: 0;
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin: 0px 7vw;
+    padding-left: 20px;
+    padding-right: 30px;
 }
 
-.titleDecor{
-    width: 20vw;
-}
-
-.pageTitle{
-    font-family: "Genos";
+.mapTitle{
+    font-family: "Genos", sans-serif;
     color: white;
-    font-size: 4.5vw;
-    text-shadow: 0px 0px 10px rgb(236, 126, 102);
-    text-align: center;
-    padding: 0px 30px;
+    font-weight: 100;
+    font-size: 3vw;
+    margin-bottom: 5px;
+    transition: padding 0.1s ease-in;
 }
 
-.charSlide{
-    position: relative;
+.mapTitle.here{
+    padding-left: 10px;
+}
+
+.mapTitle:hover:not(.here){
+    padding-left: 1.4vw;
+}
+
+.diamondImg{
+    padding: 12px;
+}
+
+.diamondImg.half{
+    margin-left: -4.5px;
+}
+
+.mapName.here{
+    background: linear-gradient(45deg, rgb(193, 220, 220), rgba(175, 143, 143, 0));
+}
+
+.mapName.lueyi:hover{
+    background: linear-gradient(45deg, rgb(142, 125, 62), rgba(139, 129, 92, 0));
+}
+
+.mapName.imazuna:hover{
+    background: linear-gradient(45deg, rgb(152, 90, 234), rgba(73, 71, 79, 0));
+}
+
+.mapName.sumeru:hover{
+    background: linear-gradient(45deg, rgb(69, 183, 117), rgba(44, 199, 110, 0));
+}
+
+.imgSlider{
+    width: 78vw;
+    height: 100vh;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
-    padding: 0px 5vw;
-    padding-top: 24px;
     align-items: center;
+    overflow: hidden;
+}
+
+.charPart{
+    width: 60vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.charPart > input{
+    display: none;
+}
+
+.slides{
+    display: flex;
+    justify-content: space-between;
+    transition: 0.3s;
+    margin-left: 5vw;
+}
+
+.charImg{
+    align-self: flex-end;
+    width: 450px;
+    height: 570px;
+    margin-left: 30px;
+    margin-right: 20px;
+}
+
+.charImg.first{
+    margin-left: -80px;
 }
 
 .charDesc{
-    width: 24vw;
-    height: 8vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 100px;
+}
+
+.charDesc > h1{
+    font-family: "Genos";
+    color: white;
+    font-size: 56px;
+    text-shadow: 0px 0px 6px white;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+}
+
+.charDesc > p{
     background-image: url(../Assets/Diamond.png);
+    background-size: 16px;
     background-repeat: no-repeat;
-    background-position: 1.1vw 1.3vw;
-    background-size: 1.3vw;
-    padding: 1.2vw;
-    padding-left: calc(2px + 3vw);
-    background-color: rgba(0, 0, 0, 0.7);
-    position: absolute;
-    border-radius: 8px;
-    box-shadow: 1px 1px 4px black;
-    /* margin-bottom: 200px; */
-    margin-bottom: 15vw;
-    /* margin-left: 80px; */
-    margin-left: 6vw;
+    background-position: 0.8vw 1.6vw;
+    border: 2px solid rgb(148, 112, 68);
+    background-color: rgb(222, 182, 132);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 14px;
+    width: 300px;
+    height: 140px;
+    padding: 20px 20px 0px 40px;
+    margin-bottom: 20px;
 }
 
-.descItem{
-    color: white;
-    font-size: 1.2vw;
+.element{
+    width: 200px;
 }
 
-.imgItem{
-    width: 50vw;
-    height: 30vw;
+.avatarImg{
+    width: 6vw;
 }
-    
-.slide{
+
+.charBtn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.5));
+    margin: 25px 0px;
+    width: 7vw;
+    transition: all 0.3s ease 0s;
     cursor: pointer;
-    height: fit-content;
-    padding-top: 10px;
-    border-radius: 4px;
-    transition: all 0.3s ease 0s;
 }
 
-.slide:hover{
-    box-shadow: 0px 0px 6px white;
-    transition: all 0.3s ease 0s;
-}
-
-.slide span{
-    color: white;
-}
-
-.arrow > img{
-    width: 3vw;
-}
-
-.jumbotron3{
-    background-color: #F6F0E4;
-    background-image: url(../Assets/YellowWish.png);
-    /* border: 10px solid #8025ff; */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.pageTitle3{
-    font-family: "Genos";
-    color: rgb(215, 166, 61);
-    text-shadow: 0px 0px 4px;
-    font-size: 5vw;
+.charName{
+    background-color: rgba(0, 0, 0, 0.7);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
     text-align: center;
-    padding: 0px 3vw;
-    /* margin-bottom: 0.8vw; */
-}
-
-.listWeapon{
-    display: flex;
-    justify-content: center;
-    gap: 4vw;
-    margin-top: 1.5vw;
-}
-
-.eachWeapon{
-    display: flex;
-    flex-direction: column;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    align-items: center;
-    justify-content: space-between;
-    height: 30vw;
-    width: 15vw;
-    padding: 1.3vw 0px;
-}
-
-.eachWeapon.bow{
-    background-image: url(../Assets/WeapBGBow.png);
-}
-
-.eachWeapon.sword{
-    background-image: url(../Assets/WeapBGSword.png);
-}
-
-.eachWeapon.spear{
-    background-image: url(../Assets/WeapBGSpear.png);
-}
-
-.eachWeapon.orb{
-    background-image: url(../Assets/WeapBGOrb.png);
-}
-
-.stars{
-    width: 8vw;
-}
-
-.weaponImg.bow{
-    width: 15vw;
-    rotate: 10deg;
-}
-
-.weaponImg.sword{
-    width: 9vw;
-    rotate: 5deg;
-}
-
-.weaponImg.spear{
-    width: 8vw;
-}
-
-.weaponImg.orb{
-    width: 13vw;
-}
-
-.weaponName{
-    color: white;
     font-family: "Genos";
-    letter-spacing: 0.3vw;
-    font-size: 2.5vw;
-}
-
-.imgOverlay{
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.6);
-    width: 12.3vw;
-    height: 27.4vw;
     color: white;
-    display: flex;
-    flex-direction: column;
-    /* align-items: center; */
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s;
-    padding-left: 0.6vw;
-    padding-right: 0.8vw;
-}
-
-.imgOverlay > *{
-    transform: translateY(20px);
-    transition: transform 0.3s;
-}
-
-.imgOverlay:hover{
-    opacity: 1;
-}
-
-.imgOverlay:hover > *{
-    transform: translateY(0);
-}
-
-.weapType{
-    margin-bottom: 1vw;
-    background-color: rgba(203, 159, 76, 0.7);
-    text-align: center;
-    font-size: 1.8vw;
-}
-
-.atk{
-    color: grey;
-    font-family: "Genos", sans-serif;
-    font-size: 2vw;
-}
-
-.weapDesc{
-    margin-top: 1.2vw;
-    font-family: "Genos", sans-serif;
-    font-size: 1vw;
-}
-
-.baseAtk{
-    font-size: 3vw;
-}
-
-.generalDesc{
+    letter-spacing: 0.5vw;
+    padding: 5px 0px;
     font-size: 1.5vw;
+    width: 7vw;
+}
+
+.navigation-manual{
+    height: 100vh;
+    padding: 0px 3vw;
+    background-color: rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 3vw;
+}
+
+.charBtn:hover{
+    background: rgb(219, 219, 219);
+}
+
+#radio1:checked ~ .first{
+    margin-left: 64px;
+}
+
+#radio2:checked ~ .first{
+    margin-left: -800px;
+}
+
+#radio3:checked ~ .first{
+    margin-left: -1700px;
+}
+
+@keyframes changeBG{
+    0%{
+        background-image: url(../Assets/MoundstatMapBlur1.jpg);
+        background-position: center;
+    }
+    48%{
+        background-image: url(../Assets/MoundstatMapBlur1.jpg);
+        background-position: initial;
+    }
+    52%{
+        background-image: url(../Assets/MoundstatMapBlur2.jpg);
+        background-position: initial;
+    }
+    100%{
+        background-image: url(../Assets/MoundstatMapBlur2.jpg);
+        background-position: center;
+    }
 }
 
 @media screen and (min-width: 501px) and (max-width: 890px) {
@@ -612,82 +536,98 @@
         width: 100px;
         height: auto;
     }
-    
-    /* jumbotron1 */
-    .playTrailer > img{
-        width: 80px;
-    }
-    
-    .mainTitle{
-        font-size: 5vw;
-        margin: 0px 40px;
+
+    /* Content */
+    .mapBar{
+        margin-left: -1.2vw;
+        width: 18vw;
     }
     
-    .platform{
-        padding: 2vw 0;
-        display: flex;
-        justify-content: space-evenly;
-        flex-wrap: wrap;
-        margin: 0px 14vw;
+    .mapName{
+        padding-left: 1vw;
+        padding-right: 1.5vw;
     }
     
-    .pltImage{
-        width: 170px;
-        /* width: 21vw; */
-        padding: 10px;
-        opacity: 0.65;
-        transition: all 0.3s ease 0s;
+    .mapTitle{
+        font-size: 2.3vw;
+        margin-bottom: 5px;
     }
     
-    .esrbImg{
-        width: 90px;
+    .mapTitle.here{
+        padding-left: 0.8vw;
+        /* margin-top: 0.4vw; */
     }
-
-    .jumbotron2{
-        padding-top: 0px;
+    
+    .mapTitle:hover:not(.here){
+        padding-left: 1.4vw;
     }
-
-    .titlePart{
-        margin: 0px 5vw;
-        margin-top: -50px;
+    
+    .diamondImg{
+        padding: 1.5vw;
     }
-
-    .pageTitle{
-        font-size: 5vw;
-        padding: 0px 5vw;
+    
+    .diamondImg.half{
+        margin-left: -4.5px;
     }
-
-    .titleDecor{
-        width: 15vw;
+    
+    .imgSlider{
+        width: 78vw;
+        height: 100vh;
     }
-
-    .charSlide{
-        position: relative;
-        display: flex;
-        justify-content: space-between;
-        padding: 0px 5vw;
-        padding-top: 0px;
-        align-items: center;
+    
+    .charPart{
+        width: 60vw;
+        height: 100vh;
+    }
+    
+    .slides{
+        margin-left: 5vw;
+    }
+    
+    .charImg{
+        width: 300px;
+        height: 420px;
+        margin-left: 30px;
+        margin-right: 10px;
+    }
+    
+    .charImg.first{
+        margin-left: -6vw;
     }
     
     .charDesc{
-        width: 50vw;
-        height: 10vw;
-        padding-top: calc(5px + 0.7vw);
-        background-position: 1.5vw 1.8vw;
-        padding-left: calc(10px + 3vw);
-        margin-bottom: -50vw;
-        margin-left: 23vw;
+        padding-top: 100px;
     }
     
-    .descItem{
-        font-size: 1.8vw;
+    .charDesc > h1{
+        margin-top: 70px;
+        font-size: 5vw;
     }
     
-    .imgItem{
-        margin-top: 1.5vw;
-        width: 75vw;
-        height: 45vw;
+    .charDesc > p{
+        background-size: 14px;
+        background-position: 10px 13px;
+        font-size: 10px;
+        width: 200px;
+        height: 100px;
+        padding: 13px 10px 0px 30px;
+        margin-bottom: 20px;
+    }
+    
+    .element{
+        width: 150px;
+    }
+    
+    #radio1:checked ~ .first{
+        margin-left: 44px;
+    }
+    
+    #radio2:checked ~ .first{
+        margin-left: -550px;
+    }
+    
+    #radio3:checked ~ .first{
+        margin-left: -1150px;
     }
 }
 
@@ -781,153 +721,177 @@
         padding: 10px 0px;
     }
 
-    /* jumbotron1 */
-    .playTrailer > img{
-        width: 80px;
-    }
-    
-    .mainTitle{
-        font-size: 7vw;
-        margin: 0px 40px;
-    }
-    
-    .platform{
+    /* Content */
+    .container{
+        width: 100%;
+        height: 100vh;
+        animation-name: changeBG;
+        animation-duration: 14s;
+        animation-iteration-count: infinite;
         display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin: 0px 5vw;
-    }
-    
-    .pltImage{
-        width: 140px;
-        height: 55px;
-        /* width: 21vw; */
-        opacity: 0.65;
-        transition: all 0.3s ease 0s;
-    }
-    
-    .esrbImg{
-        width: 90px;
-    }
-
-    /* jumbotron2 */
-    .jumbotron2{
-        padding-top: 0px;
-    }
-
-    .titlePart{
-        margin: 0px 5vw;
-        margin-top: -50px;
-    }
-
-    .pageTitle{
-        font-size: 6vw;
-        padding: 0px 3vw;
-    }
-
-    .titleDecor{
-        width: 15vw;
-    }
-
-    .charSlide{
-        position: relative;
-        display: flex;
-        justify-content: space-between;
-        padding: 0px 5vw;
-        padding-top: 0px;
+        flex-direction: column;
+        justify-content: flex-end;
         align-items: center;
     }
     
+    .mapBar{
+        display: flex;
+        flex-direction: row;
+        margin-left: 0px;
+        width: 100vw;
+        justify-content: center;
+    }
+    
+    .mapName{
+        left: 0;
+        display: flex;
+        align-items: center;
+        padding: 0px 3vw;
+        transition: all 0.3s ease 0s;
+    }
+    
+    .mapTitle{
+        font-weight: 100;
+        font-size: 5vw;
+        font-style: oblique;
+        font-weight: 700;
+        text-shadow: 0px 0px 4px black
+    }
+    
+    .mapTitle.here{
+        padding-left: 0px;
+    }
+    
+    .mapTitle:hover:not(.here){
+        padding-top: 1.4vw;
+    }
+    
+    .diamondImg{
+        display: none;
+    }
+    
+    .mapName.here{
+        background: linear-gradient(0deg, rgb(193, 220, 220), rgba(175, 143, 143, 0));
+    }
+    
+    .mapName.lueyi:hover{
+        background: linear-gradient(0deg, rgb(142, 125, 62), rgba(139, 129, 92, 0));
+    }
+    
+    .mapName.imazuna:hover{
+        background: linear-gradient(0deg, rgb(152, 90, 234), rgba(73, 71, 79, 0));
+    }
+    
+    .mapName.sumeru:hover{
+        background: linear-gradient(0deg, rgb(69, 183, 117), rgba(44, 199, 110, 0));
+    }
+    
+    .imgSlider{
+        width: 100vw;
+        height: 87vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        overflow: hidden;
+    }
+    
+    .charPart{
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .slides{
+        justify-content: space-evenly;
+        transition: 0.3s;
+        margin-left: 0vw;
+        margin-right: 30vw;
+    }
+    
+    .charImg{
+        width: 85vw;
+        height: 70vh;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    
+    .charImg.first{
+        margin: 0;
+        margin-left: 6vw;
+    }
+    
     .charDesc{
-        width: 50vw;
-        height: 10vw;
-        background-position: 6px 8px;
-        padding-left: calc(7px + 3vw);
-        padding-top: 7px;
-        margin-bottom: -50vw;
-        margin-left: 23vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-top: 0px;
+        margin-left: -76vw;
     }
     
-    .descItem{
-        font-size: 1.8vw;
+    .charDesc > h1{
+        font-family: "Genos";
+        color: white;
+        font-size: 56px;
+        text-shadow: 0px 0px 6px white;
+        letter-spacing: 4px;
+        margin-bottom: 10px;
+        text-align: center;
     }
     
-    .imgItem{
-        margin-top: 1.5vw;
-        width: 75vw;
-        height: 45vw;
-    }
-
-    .pageTitle3{
-        font-size: 8vw;
-        padding: 0px 4vw;
-    }
-
-    .listWeapon{
-        flex-wrap: wrap;
-        margin-top: 10vw;
-    }
-
-    .eachWeapon{
-        height: auto;
-        width: 40vw;
-        padding: 2vw 0px;
-    }
-
-    .stars{
-        width: 12vw;
-    }
-
-    .weaponImg.bow{
-        width: 20vw;
-        rotate: 10deg;
+    .charDesc > p{
+        background-size: 3.5vw;
+        background-position: 3vw 2vw;
+        font-size: 2.7vw;
+        width: 70vw;
+        height: 20vw;
+        padding: 2vw 4vw 0px 9vw;
+        margin-bottom: -50vh;
+        box-shadow: 0px 0px 6px black;
     }
     
-    .weaponImg.sword{
-        width: 13vw;
-        rotate: 5deg;
+    .element{
+        width: 24vw;
     }
     
-    .weaponImg.spear{
-        width: 12vw;
-    }
-    
-    .weaponImg.orb{
+    .avatarImg{
         width: 15vw;
     }
-
-    .weaponName{
+    
+    .charBtn{
+        justify-content: space-between;
+        margin: 0px 5vw;
+        width: 15vw;
+    }
+    
+    .charName{
         letter-spacing: 0.5vw;
+        padding: 1vw 0px;
         font-size: 4vw;
+        width: 15vw;
     }
     
-    .imgOverlay{
-        width: 16vw;
-        height: auto;
-        padding: 2vw 0px;
-        padding-left: 1.5vw;
-        padding-right: 1.8vw;
+    .navigation-manual{
+        width: 100vw;
+        height: 30vw;
+        padding: 3vw;
+        background-color: rgba(255, 255, 255, 0.2);
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-right: 0vw;
     }
     
-    .weapType{
-        margin-bottom: 2vw;
-        font-size: 2vw;
+    #radio1:checked ~ .first{
+        margin-left: 0vw;
     }
     
-    .atk{
-        font-size: 2.4vw;
+    #radio2:checked ~ .first{
+        margin-left: -108vw;
     }
     
-    .weapDesc{
-        margin-top: 1.2vw;
-        font-size: 1.5vw;
-    }
-    
-    .baseAtk{
-        font-size: 2vw;
-    }
-    
-    .generalDesc{
-        font-size: 1.4vw;
+    #radio3:checked ~ .first{
+        margin-left: -215vw;
     }
 }

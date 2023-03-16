@@ -18,8 +18,80 @@
     position: fixed;
     display: flex;
     justify-content: space-between;
-    align-content: center;
     z-index: 1;
+}
+
+:root {
+    --bar-width: 4.5vw;
+    --bar-height: 0.5vw;
+    --hamburger-gap: 6px;
+    --foreground: #333;
+    --background: white;
+    --hamburger-margin: 8px;
+    --animation-timing: 400ms ease-in-out;
+    --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
+}
+    
+.hamburgerMenu {
+    --x-width: calc(var(--hamburger-height) * 1.41421356237);
+    /* display: flex; */
+    display: none;
+    flex-direction: column;
+    gap: var(--hamburger-gap);
+    width: max-content;
+    z-index: 2;
+    cursor: pointer;
+}
+    
+.hamburgerMenu:has(input:checked) {
+    --foreground: white;
+    --background: #333;
+}
+    
+.hamburgerMenu:has(input:focus-visible)::before,
+.hamburgerMenu:has(input:focus-visible)::after,
+.hamburgerMenu input:focus-visible {
+    border: 1px solid var(--background);
+    box-shadow: 0 0 0 1px var(--foreground);
+}
+    
+.hamburgerMenu::before,
+.hamburgerMenu::after,
+.hamburgerMenu input {
+    content: "";
+    width: var(--bar-width);
+    height: var(--bar-height);
+    background-color: rgb(214, 214, 214);
+    border-radius: 9999px;
+    transform-origin: left center;
+    transition: opacity var(--animation-timing), width var(--animation-timing),
+     rotate var(--animation-timing), translate var(--animation-timing),
+     background-color var(--animation-timing);
+}
+    
+.hamburgerMenu input {
+    appearance: none;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    pointer-events: none;
+}
+    
+.hamburgerMenu:has(input:checked)::before {
+    rotate: 45deg;
+    width: var(--x-width);
+    translate: 0 calc(var(--bar-height) / -2);
+}
+    
+.hamburgerMenu:has(input:checked)::after {
+    rotate: -45deg;
+    width: var(--x-width);
+    translate: 0 calc(var(--bar-height) / 2);
+}
+    
+.hamburgerMenu input:checked {
+    opacity: 0;
+    width: 0;
 }
 
 .leftNav{
@@ -29,13 +101,13 @@
 }
 
 .logoImage{
-    height: 10vh;
+    height: 60px;
     margin: 0 3vw;
 }
 
 .navLinks{
     display: flex;
-    align-content: center;
+    align-items: center;
     justify-content: center;
 }
 
@@ -46,14 +118,13 @@
 
 .navItem{
     color: white;
-    transition: all 0.3s ease 0s;
 }
 
 .navItem,
 .inHere,
 .signIn,
 .signUp{
-    font-size: 21px;
+    font-size: 19px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     padding: 0 15px;
 }
@@ -67,13 +138,11 @@
     margin-right: 3vw;
     display: flex;
     align-items: center;
-    flex-direction: row;
 }
 
 .signIn,
 .signUp{
-    padding: 15px 20px;
-    font-size: 20px;
+    padding: 1vw 2vw;
     border-radius: 20px;
     margin: 0px 5px;
     transition: all 0.3s ease 0s;
@@ -112,10 +181,13 @@
 }
 
 .footerSocmed{
+    display: flex;
     background-color: rgb(54, 54, 54);
     width: 100%;
-    text-align: center;
-    padding: 7px 0px;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 6px;
+    padding-top: 9px;
 }
 
 .socmedImg{
@@ -129,7 +201,7 @@
 .footerMenu{
     display: flex;
     align-items: center;
-    margin: 10px 0px;
+    margin: 10px 20px;
 }
 
 .footerItem{
@@ -138,6 +210,7 @@
     color: rgb(97, 97, 97);
     font-size: 16px;
     transition: all 0.3s ease 0s;
+    text-align: center;
 }
 
 .footerItem:hover{
@@ -147,11 +220,11 @@
 
 .esrbFooter{
     margin: 10px 0px;
-    width: 10vw;
+    width: 110px;
 }
 
 .logoFooter{
-    height: 10vh;
+    height: 65px;
 }
 
 .footerDesc{
@@ -162,10 +235,11 @@
 }
 
 .companyLogo{
-    height: 8vh;
+    height: 50px;
     padding: 10px 0px;
 }
 
+/* Content */
 .toyfatMap, .moundstatMap, .lueyiMap, .imazunaMap, .semureMap{
     background-size: cover;
     background-position: center;
@@ -227,7 +301,7 @@
 }
 
 .underline{
-    margin-bottom: 80px;
+    margin-bottom: 60px;
 }
 
 .logoMap{
@@ -238,124 +312,119 @@
 .descToy{
     font-family: "Genos";
     text-align: center;
-    font-size: 24px;
+    font-size: 2vw;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
     line-height: 1.5;
+    margin: 0px 70px;
 }
 
 .descMap{
     font-family: "Genos";
     text-align: center;
-    font-size: 20px;
+    font-size: 2vw;
     background-color: rgba(38, 38, 38, 0.6);
     border-radius: 5px;
     padding: 20px 20px;
     line-height: 1.3;
+    margin: 0px 70px;
     margin-top: 80px;
 }
 
-@media screen  and (max-width: 767px){
-
-    body{
-        width: 100%;
-    }
-
+@media screen and (min-width: 501px) and (max-width: 890px) {
     /* Header */
     .header{
-        background-color:  rgba(0, 0, 0, 0.7);
-        width: 100%;
-        position: fixed;
-        display: flex;
-        justify-content: space-between;
-        align-content: center;
-        z-index: 1;
+        height: 70px;
     }
-    
-    .leftNav{
-        display: flex;
-        padding: 5px 0px;
-        align-items: center;
-    }
-    
+
     .logoImage{
-        height: 3vh;
-        margin: 0 3vw;
+        width: 130px;
+        height: 50px;
     }
-    
-    .navLinks{
+
+    .hamburgerMenu{
         display: flex;
-        align-content: center;
-        justify-content: center;
     }
-    
-    .inHere{
-        color: white;
-        text-shadow: 0px 0px 6px rgb(130, 201, 205);
+
+    .navLinks {
+        flex-direction: column;
+        transition: translate var(--animation-timing);
+        position: absolute;
+        translate: 0 -130%;
+        padding-left: 20px;
+        /* padding-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem); */
+        background-color: rgba(0, 0, 0, 0.7);
+        color: var(--background);
+        width: 100vw;
+        height: 30vh;
     }
-    
-    .navItem{
-        color: white;
-        transition: all 0.3s ease 0s;
+
+    .hamburgerMenu:has(input:checked) + .navLinks {
+        translate: 0 20.95vh;
+        position: absolute;
     }
-    
+
     .navItem,
-    .inHere,
-    .signIn,
-    .signUp{
-        font-size: 8px;
-        font-family: Georgia, 'Times New Roman', Times, serif;
-        padding: 0 5px;
+    .inHere{
+        font-size: 19px;
+        padding: 10px 0px;
     }
-    
-    .navItem:hover{
-        transition: all 0.3s ease 0s;
-        text-shadow: 0px 0px 8px rgb(130, 201, 205);
-    }
-    
+
     .register{
-        margin-right: 1vw;
-        display: flex;
-        align-items: center;
-        flex-direction: row;
+        position: absolute;
+        right: 0;
+        top: 17px;
     }
-    
+
     .signIn,
     .signUp{
-        padding: 5px 10px;
-        font-size: 8px;
-        border-radius: 20px;
-        margin: 0px 5px;
-        transition: all 0.3s ease 0s;
+        font-size: 19px;
+        padding: 1vw 3vw;
+    }
+
+    /* Footer */
+    .socmedImg{
+        padding: 0px 8px;
+        height: 30px;
     }
     
-    .signIn{
-        color: white;
-        background-color: transparent;
+    .footerItem{
+        padding: 0px 15px;
+        font-size: 16px;
     }
     
-    .signIn:hover{
-        color: black;
-        background-color: white;
-        transition: all 0.3s ease 0s;
+    .esrbFooter{
+        width: 80px;
+    }
+
+    .logoFooter{
+        height: 50px;
+        margin: 0px 20px;
     }
     
-    .signUp{
-        color: black;
-        background-color: rgb(255, 236, 31);
+    .footerDesc{
+        font-size: 11px;
+        margin: 10px;
     }
-    
-    .signUp:hover{
-        transition: all 0.3s ease 0s;
-        background-color: white;
+
+    .companyLogo{
+        width: 100px;
+        height: auto;
     }
-    
-    /* Container */
+
+    /* Content */
+    .toyTitle{
+        font-size: 80px;
+    }
+
+    .underline{
+        width: 400px;
+    }
+
     .descToy{
         text-align: center;
-        font-size: 12pt;
-        text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
-        padding: 0px 10px;
-        max-width: 80%;
+        font-size: 11pt;
+        /* padding: 0px 10px; */
+        /* width: 80%; */
     }
 
     .logoImg{
@@ -371,106 +440,160 @@
     }
 
     .titleMap{
-        font-size: 30pt;
+        font-size: 26pt;
         font-weight: bold;
         text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
-        /* background-color: rgba(0, 0, 0, 0.7); */
-        flex-direction: column;
+        padding: 0px 15px;
+    }
+
+    .decor{
+        width: 20vw;
+        height: 6px;
     }
 
     .descMap{
         text-align: center;
-        background-color: rgba(0, 0, 0, 0.7);
+        background-color: rgba(38, 38, 38, 0.6);
         max-width: 80%;
         padding: 15px 15px;
-        font-size: 15pt;
+        font-size: 10pt;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .header{
+        height: 50px;
+    }
+    
+    .logoImage{
+        width: 25vw;
+        height: 10vw;
     }
 
-    .container{
-        width: 100%;
+    :root {
+        --bar-width: 7vw;
+        --bar-height: 0.8vw;
     }
 
-    .toyfatMap, .moundstatMap, .lueyiMap, .imazunaMap, .semureMap{
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        height: 100vh;
-        width: 100%;
-        align-items: center;
+    .hamburgerMenu{
         display: flex;
-        justify-content: center;
-        color: white;
+    }
+
+    .navLinks {
         flex-direction: column;
+        transition: translate var(--animation-timing);
+        position: absolute;
+        translate: 0 -130%;
+        padding-left: 20px;
+        /* padding-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem); */
+        background-color: rgba(0, 0, 0, 0.7);
+        color: var(--background);
+        width: 100vw;
+        height: 30vh;
+    }
+
+    .hamburgerMenu:has(input:checked) + .navLinks {
+        position: absolute;
+        translate: 0 19.25vh;
+    }
+
+    .navItem,
+    .inHere{
+        font-size: 4vw;
+        padding: 10px 0px;
+    }
+
+    .register{
+        position: absolute;
+        right: 0;
+        top: 11px;
+    }
+
+    .signIn,
+    .signUp{
+        font-size: 4vw;
+        padding: 1vw 3vw;
     }
 
     /* Footer */
-.footer{
-    height: 100%;
-    width: 100%;
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.footerSocmed{
-    background-color: rgb(54, 54, 54);
-    width: 100%;
-    text-align: center;
-    padding: 7px 0px;
-}
-
-.socmedImg{
-    padding: 0px 10px;
-    width: 40px;
-    height: 30px;
-}
-
-.socmedImg:hover{
-    filter: brightness(2);
-}
-
-.footerMenu{
-    display: flex;
-    align-items: center;
-    margin: 10px 0px;
-    width: 100%;
-}
-
-.footerItem{
-    padding: 0px 10px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: rgb(97, 97, 97);
-    font-size: 10px;
-    transition: all 0.3s ease 0s;
-}
-
-.footerItem:hover{
-    transition: all 0.3s ease 0s;
-    color: white;
-}
-
-.esrbFooter{
-    margin: 10px 0px;
-    width: 10vw;
-}
-
-.logoFooter{
-    height: 5vh;
-}
-
-.footerDesc{
-    color: white;
-    font-size: 12px;
-    text-align: center;
-    margin: 10px 0px;
-}
-
-.companyLogo{
-    height: 8vh;
-    padding: 10px 0px;
-}
-
+    .socmedImg{
+        padding: 0px 8px;
+        height: 20px;
+    }
     
+    .footerItem{
+        padding: 0px 10px;
+        font-size: 10px;
+    }
+
+    .footerMenu{
+        margin: 10px 5px;
+    }
+    
+    .esrbFooter{
+        margin: 7px 0px;
+        width: 50px;
+    }
+    
+    .logoFooter{
+        height: 30px;
+        margin: 0px 10px;
+    }
+    
+    .footerDesc{
+        font-size: 8px;
+        margin: 10px;
+    }
+    
+    .companyLogo{
+        height: 5vh;
+        padding: 10px 0px;
+    }
+
+    .toyTitle{
+        font-size: 16vw;
+    }
+
+    .underline{
+        width: 80vw;
+    }
+
+    .descToy{
+        text-align: center;
+        font-size: 3vw;
+        /* padding: 0px 5px; */
+        margin: 0px 15vw;
+    }
+
+    .logoImg{
+        object-position: center;
+        height: 10px;
+        background-repeat: no-repeat;
+    }
+
+    .logoMap{
+        object-position: center;
+        height: 70px;
+        background-repeat: no-repeat;
+    }
+
+    .titleMap{
+        font-size: 26pt;
+        font-weight: bold;
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+        padding: 0px 15px;
+    }
+
+    .decor{
+        width: 20vw;
+        height: 6px;
+    }
+
+    .descMap{
+        text-align: center;
+        background-color: rgba(38, 38, 38, 0.6);
+        max-width: 80%;
+        padding: 15px;
+        font-size: 3vw;
+    }
 }

@@ -13,12 +13,12 @@
 .header{
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color:  rgba(0, 0, 0, 0.7);
     width: 100%;
     position: fixed;
     display: flex;
     justify-content: space-between;
-    z-index: 2;
+    z-index: 1;
 }
 
 :root {
@@ -111,11 +111,17 @@
     justify-content: center;
 }
 
+.inHere{
+    color: white;
+    text-shadow: 0px 0px 6px rgb(130, 201, 205);
+}
+
 .navItem{
     color: white;
 }
 
 .navItem,
+.inHere,
 .signIn,
 .signUp{
     font-size: 19px;
@@ -235,161 +241,224 @@
 
 /* Content */
 .container{
-    background-image: url(../Assets/LoginPage.png);
     width: 100%;
     height: 100vh;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    animation-name: changeBG;
+    animation-duration: 14s;
+    animation-iteration-count: infinite;
     display: flex;
-    justify-content: center;
-    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
 }
 
-.logoHayoloe{
-    width: 150px;
-    margin-bottom: 12px;
-}
-
-.outerBox{
+.mapBar{
     display: flex;
-    justify-content: center;
-    flex-direction: row;
-}
-
-.decorLeft{
-    width: 100px;
-    height: 100px;
-    margin-right: -50px;
-    margin-top: -40px;
-    z-index: 1;
-}
-
-.decorRight{
-    width: 120px;
-    height: 150px;
-    margin-left: -70px;
-    margin-top: -70px;
-}
-
-.registerBox{
-    width: 360px;
-    height: fit-content;
-    background-color: white;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
     flex-direction: column;
-    align-items: center;
+    margin-left: -2px;
+    /* border:  2px solid black; */
+    width: 260px;
 }
 
-.mainTitle{
+.mapName{
+    left: 0;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 30px;
+}
+
+.mapTitle{
     font-family: "Genos", sans-serif;
-    font-weight: 100;
-    text-align: center;
-    margin: 20px 0px;
-    font-size: 27px;
-}
-
-form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-}
-
-.formBox{
-    width: fit-content;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-left: 1vw;
-}
-
-#inputText,
-#inputPassword,
-#inputNumber,
-#inputEmail{
-    border: 2px solid rgb(134, 134, 134);
-    margin: 10px 0px;
-    padding: 10px;
-    border-radius: 4px;
-    width: 290px;
-}
-
-::placeholder{
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
-
-#inputText:hover{
-    border: 2px solid rgb(rgba(62, 62, 62));
-}
-
-#nameError,
-#passError,
-#ageError,
-#emailError,
-#termsError{
-    color: red;
-    font-size: 12px;
-    margin-top: -5px;
-}
-
-#submitBtn{
-    width: fit-content;
-    padding: 10px 20px;
-    background-color: rgb(138, 143, 189);
-    border-radius: 7px;
-    transition: all 0.3s ease 0s;
-    margin: auto;
-    margin-bottom: 10px;
     color: white;
-    text-align: center;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 100;
+    font-size: 3vw;
+    margin-bottom: 5px;
+    transition: padding 0.1s ease-in;
 }
 
-#submitBtn:hover{
-    background-color: rgb(76, 78, 97);
-    transition: all 0.3s ease 0s;
+.mapTitle.here{
+    padding-left: 10px;
 }
 
-#termsPrivacy{
+.mapTitle:hover:not(.here){
+    padding-left: 1.4vw;
+}
+
+.diamondImg{
+    padding: 12px;
+}
+
+.diamondImg.half{
+    margin-left: -4.5px;
+}
+
+.mapName.here{
+    background: linear-gradient(45deg, rgb(69, 183, 117), rgba(44, 199, 110, 0));
+}
+
+.mapName.moundstat:hover{
+    background: linear-gradient(45deg, rgb(193, 220, 220), rgba(175, 143, 143, 0));
+}
+
+.mapName.lueyi:hover{
+    background: linear-gradient(45deg, rgb(142, 125, 62), rgba(139, 129, 92, 0));
+}
+
+.mapName.imazuna:hover{
+    background: linear-gradient(45deg, rgb(152, 90, 234), rgba(73, 71, 79, 0));
+}
+
+.imgSlider{
+    width: 78vw;
+    height: 100vh;
+    /* border:  2px solid black; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+
+.charPart{
+    width: 60vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.charPart > input{
+    display: none;
+}
+
+.slides{
+    display: flex;
+    justify-content: space-between;
+    transition: 0.3s;
+    /* border:  2px solid red; */
+    margin-left: 5vw;
+}
+
+.charImg{
+    /* border:  2px solid purple; */
+    align-self: flex-end;
+    width: 450px;
+    height: 100vh;
+    margin-left: 30px;
+    margin-right: 20px;
+}
+
+.charImg.first{
+    margin-left: -80px;
+}
+
+.charDesc{
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
+    justify-content: flex-start;
+    padding-top: 100px;
+}
+
+.charDesc > h1{
+    /* border:  2px solid orange; */
+    font-family: "Genos";
+    color: white;
+    font-size: 56px;
+    text-shadow: 0px 0px 6px white;
+    letter-spacing: 4px;
     margin-bottom: 10px;
 }
 
-#termsPart{
+.charDesc > p{
+    background-image: url(../Assets/Diamond.png);
+    background-size: 16px;
+    background-repeat: no-repeat;
+    background-position: 0.8vw 1.6vw;
+    border: 2px solid rgb(148, 112, 68);
+    background-color: rgb(222, 182, 132);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 14px;
+    width: 300px;
+    height: 140px;
+    padding: 20px 20px 0px 40px;
+    margin-bottom: 20px;
+}
+
+.element{
+    width: 200px;
+}
+
+.avatarImg{
+    width: 6vw;
+}
+
+.charBtn{
     display: flex;
+    flex-direction: column;
     align-items: center;
-}
-
-#termsError{
-    padding-top: 8px;
-}
-
-.termsText{
-    width: 100%;
-    margin-left: 5px;
-    font-size: 10px;
-    color: rgb(138, 138, 138);
-}
-
-.return{
-    margin-bottom: 10px;
-}
-
-.return > a{
-    color: rgba(138, 138, 138, 1);
-    transition: all 0.3s ease 0s;
-}
-
-.return > a:hover{
-    color: black;
+    border-radius: 5px;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.5));
+    margin: 25px 0px;
+    width: 7vw;
     transition: all 0.3s ease 0s;
     cursor: pointer;
+}
+
+.charName{
+    background-color: rgba(0, 0, 0, 0.7);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    text-align: center;
+    font-family: "Genos";
+    color: white;
+    letter-spacing: 0.5vw;
+    padding: 5px 0px;
+    font-size: 1.5vw;
+    width: 7vw;
+}
+
+.navigation-manual{
+    height: 100vh;
+    padding: 0px 3vw;
+    background-color: rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 3vw;
+}
+
+.charBtn:hover{
+    background: rgb(219, 219, 219);
+}
+
+#radio1:checked ~ .first{
+    margin-left: 64px;
+}
+
+#radio2:checked ~ .first{
+    margin-left: -800px;
+}
+
+#radio3:checked ~ .first{
+    margin-left: -1700px;
+}
+
+@keyframes changeBG{
+    0%{
+        background-image: url(../Assets/SemureMapBlur.jpg);
+        background-position: center;
+    }
+    48%{
+        background-image: url(../Assets/SemureMapBlur.jpg);
+        background-position: initial;
+    }
+    52%{
+        background-image: url(../Assets/SemureMap2Blur.jpg);
+        background-position: initial;
+    }
+    100%{
+        background-image: url(../Assets/SemureMap2Blur.jpg);
+        background-position: center;
+    }
 }
 
 @media screen and (min-width: 501px) and (max-width: 890px) {
@@ -564,74 +633,178 @@ form{
         padding: 10px 0px;
     }
 
-    .registerBox{
-        width: 60vw;
+    /* Content */
+    .container{
+        width: 100%;
+        height: 100vh;
+        animation-name: changeBG;
+        animation-duration: 14s;
+        animation-iteration-count: infinite;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
     }
-
-    .logoHayoloe{
-        width: 30vw;
-        margin-bottom: 12px;
+    
+    .mapBar{
+        display: flex;
+        flex-direction: row;
+        margin-left: 0px;
+        width: 100vw;
+        justify-content: center;
     }
-
-    .mainTitle{
-        margin: 20px 0px;
+    
+    .mapName{
+        left: 0;
+        display: flex;
+        align-items: center;
+        padding: 0px 3vw;
+        transition: all 0.3s ease 0s;
+    }
+    
+    .mapTitle{
+        font-weight: 100;
         font-size: 5vw;
-    }
-
-    .decorLeft{
-        width: 14vw;
-        height: 15vw;
-        margin-right: -7vw;
-        margin-top: -20px;
-        z-index: 1;
+        font-style: oblique;
+        font-weight: 700;
+        text-shadow: 0px 0px 4px black;
     }
     
-    .decorRight{
-        width: 15vw;
+    .mapTitle.here{
+        padding-left: 0px;
+    }
+    
+    .mapTitle:hover:not(.here){
+        padding-top: 1.4vw;
+    }
+    
+    .diamondImg{
+        display: none;
+    }
+    
+    .mapName.here{
+        background: linear-gradient(0deg, rgb(69, 183, 117), rgba(44, 199, 110, 0));
+    }
+    
+    .mapName.moundstat:hover{
+        background: linear-gradient(0deg, rgb(193, 220, 220), rgba(175, 143, 143, 0));
+    }
+
+    .mapName.lueyi:hover{
+        background: linear-gradient(0deg, rgb(142, 125, 62), rgba(139, 129, 92, 0));
+    }
+    
+    .mapName.imazuna:hover{
+        background: linear-gradient(0deg, rgb(152, 90, 234), rgba(73, 71, 79, 0));
+    }
+    
+    
+    .imgSlider{
+        width: 100vw;
+        height: 87vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        overflow: hidden;
+    }
+    
+    .charPart{
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .slides{
+        justify-content: space-evenly;
+        transition: 0.3s;
+        margin-left: 0vw;
+        margin-right: 30vw;
+    }
+    
+    .charImg{
+        width: 85vw;
+        height: 120vw;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    
+    .charImg.first{
+        margin: 0;
+        margin-left: 6vw;
+    }
+    
+    .charDesc{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-top: 0px;
+        margin-left: -76vw;
+    }
+    
+    .charDesc > h1{
+        font-family: "Genos";
+        color: white;
+        font-size: 56px;
+        text-shadow: 0px 0px 6px white;
+        letter-spacing: 4px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    
+    .charDesc > p{
+        background-size: 3.5vw;
+        background-position: 3vw 2vw;
+        font-size: 2.7vw;
+        width: 70vw;
         height: 20vw;
-        margin-left: -9vw;
-        margin-top: -28px;
-    }
-
-    #inputText,
-    #inputPassword,
-    #inputNumber,
-    #inputEmail{
-        padding: 8px;
-        width: 45vw;
-    }
-
-    ::placeholder{
-        font-size: 12px;
-    }
-
-    .termsText{
-        font-size: 8px;
+        padding: 2vw 4vw 0px 9vw;
+        margin-bottom: -50vh;
+        box-shadow: 0px 0px 6px black;
     }
     
-    #termsPart{
-        margin: 0px 7vw;
+    .element{
+        width: 24vw;
     }
-
-    #nameError,
-    #passError,
-    #ageError,
-    #emailError,
-    #termsError{
-        font-size: 1.9vw;
-        margin-top: -5px;
+    
+    .avatarImg{
+        width: 15vw;
     }
-
-    #termsError{
-        margin-left: 7vw;
+    
+    .charBtn{
+        justify-content: space-between;
+        margin: 0px 5vw;
+        width: 15vw;
     }
-
-    #submitBtn{
-        font-size: 12px;
-        padding: 3vw 8vw;
+    
+    .charName{
+        letter-spacing: 0.5vw;
+        padding: 1vw 0px;
+        font-size: 4vw;
+        width: 15vw;
     }
-
-    .return{
-        font-size: 3vw;
+    
+    .navigation-manual{
+        width: 100vw;
+        height: 30vw;
+        padding: 3vw;
+        background-color: rgba(255, 255, 255, 0.2);
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-right: 0vw;
+    }
+    
+    #radio1:checked ~ .first{
+        margin-left: 0vw;
+    }
+    
+    #radio2:checked ~ .first{
+        margin-left: -108vw;
+    }
+    
+    #radio3:checked ~ .first{
+        margin-left: -215vw;
     }
 }
